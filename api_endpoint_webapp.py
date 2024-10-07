@@ -1,15 +1,18 @@
-# https://www.flaticon.com/free-icons/weather-forecast/3
+# https://www.tomorrow.io/ - the API.
+# https://www.flaticon.com/free-icons/weather-forecast/3 - weather icons.
 
 from flask import Flask, jsonify, render_template, request, session
 import requests
 import re
 from deep_translator import GoogleTranslator
 import secrets
+from dotenv import load_dotenv
 import os
 
 class WeatherApp:
     def __init__(self):
-        self.api_key = 'CGDuOVzl1vsrK0ESEyg9Ac2WhEc9IO80'
+        load_dotenv()
+        self.api_key = os.getenv('WEATHER_API_KEY')
         self.translator = GoogleTranslator()
         self.app = Flask(__name__, template_folder="templates", static_folder="static")
         self.app.secret_key = secrets.token_hex(16)
