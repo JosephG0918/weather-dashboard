@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App Project JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="\static\style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Weather Dashboard</h1>
+    <div class="container">
+      <div class="weather-input">
+        <h3>Enter a City Name</h3>
+        <input class="city-input" type="text" placeholder="E.g., New York, London, Tokyo">
+        <button class="search-btn">Search</button>
+      </div>
+      <div class="weather-data">
+        <div class="current-weather">
+          <div class="weather-info">
+            <div class="details">
+              <h2>{{ data.full_location }}</h2>
+              <h6>Date: {{ data.time }}</h6>
+              <h6>Temperature: {{ data.temperature }}°F</h6>
+              <h6>Wind: {{ data.wind_speed }} MPH</h6>
+              <h6>Humidity: {{ data.humidity }}%</h6>
+              <h6>Rain Intensity: {{ data.rain_intensity }} inches per hour</h6>
+              <h6>Snow Intensity: {{ data.snow_intensity }} inches per hour</h6>
+              <h6>Visibility: {{ data.visibility }} miles</h6>
+            </div>
+          </div>
+        </div>
+        <div class="forecast-grid-item">
+          <img class="resize" src="{{ url_for('static', filename=data.image_filename1) }}" 
+          alt="{{ 'Hot weather' if data.temperature >= 80 else 'Cold weather' }}">
+          <img class="resize" src="{{ url_for('static', filename=data.image_filename2) }}" 
+          alt="{{ 'Clear sky' if data.visibility >= 9 else 'Cloudy' }}">
+        </div>
+      </div>
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
