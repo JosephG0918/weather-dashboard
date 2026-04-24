@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Weather Backend
-Exec=/bin/bash -c "sleep 10 && cd /home/user/weather-dashboard/src/weather_webapp && /home/user/.local/share/virtualenvs/venv/bin/python api_endpoint_webapp.py"
+Exec=/bin/bash -c "sleep 10 && cd /home/<user>/weather-dashboard/src/weather_webapp && /home/<user>/.local/share/virtualenvs/<venv>/bin/python api_endpoint_webapp.py"
 Terminal=false
 X-GNOME-Autostart-enabled=true

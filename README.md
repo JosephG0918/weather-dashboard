@@ -96,18 +96,18 @@ weather_webapp/
 
 5. **Set up autostart**
 
-   To run the application on reboot, create an autostart directory in `/home/user/.config/`
+   To run the application on reboot, create an autostart directory in `/home/<user>/.config/`
    ```
-   mkdir /home/user/.config/autostart
+   mkdir /home/<user>/.config/autostart
    ```
    Place your `.desktop` files (`weather-backend.desktop`, `kiosk.desktop`) into this folder.
 
    `.desktop` files are located in the `/run_weather_dashboard/` directory.
 
-   You need to edit the `weather-backend.desktop` file and replace placeholders like `user` and `venv` with real values.
-   You can locate the `venv` (virtual environment) by executing:
+   You need to edit the `weather-backend.desktop` file and replace placeholders like `<user>` and `<venv>` with real values.
+   You can locate the `<venv>` (virtual environment) by executing:
    ```
-   ls /home/user/.local/share/virtualenvs/
+   ls /home/<user>/.local/share/virtualenvs/
    ```
 
    Finally, reboot the system:
