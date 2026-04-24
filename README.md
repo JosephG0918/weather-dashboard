@@ -104,7 +104,7 @@ weather_webapp/
 
    `.desktop` files are located in the `/run_weather_dashboard/` directory.
 
-   Update `weather-backend.desktop` with the correct user and venv (virtual environment) path:
+   Update `weather-backend.desktop` with the correct user and venv (virtual environment) path.
    You can locate the venv by executing:
    ```
    ls /home/<user>/.local/share/virtualenvs/
