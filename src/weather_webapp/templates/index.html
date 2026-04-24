@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Modified by Joseph - Originally by CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App Project JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="\static\style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="header">
+      <h1>Weather Dashboard</h1>
+      <div class="city-dropdown">
+        <button class="dropbtn">Select Location</button>
+        <div class="dropdown-content">
+          <a href="#" data-city="Pasadena California">Pasadena California</a>
+          <a href="#" data-city="Los Angeles">Los Angeles</a>
+          <a href="#" data-city="Big Bear Lake">Big Bear Lake</a>
+          <a href="#" data-city="New York City">New York City</a>
+          <a href="#" data-city="Manila Philippines">Manila Philippines</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="weather-data">
+        <div class="current-weather">
+            <div class="weather-info">
+                <div class="details">
+                    <h2>{{ data.full_location }}</h2>
+                    <h6>Date: {{ data.current.time }}</h6>
+                    <h6>Temperature: {{ data.current.temperature }}°F
+                      <img class="temp-icon" src="/static/img/{% if data.current.temperature >= 75 %}hot.png{% else %}cold.png{% endif %}" alt="Temperature Icon">
+                    </h6>
+                    <h6>Wind: {{ data.current.wind_speed }} MPH</h6>
+                    <h6>Humidity: {{ data.current.humidity }}%</h6>
+                    <h6>Visibility: {{ data.current.visibility }} miles</h6>
+                    <h6>Weather:
+                      <img class="weather-icon" src="/static/img/{% if data.current.rain_intensity > 0.1 %}rain.png{% elif data.current.cloud_cover > 50 %}cloud.png{% else %}sun.png{% endif %}" alt="Weather Icon">
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="days-forecast">
+            <h2>5-Day Forecast</h2>
+            <ul class="weather-cards">
+                {% for day in data.forecast %}
+                <li class="card">
+                    <h3>{{ day.time }}</h3>
+                    <h6>Temp: {{ day.temperature }}°F
+                      <img class="temp-icon" src="/static/img/{% if day.temperature >= 75 %}hot.png{% else %}cold.png{% endif %}" alt="Temperature Icon">
+                    </h6>
+                    <h6>Wind: {{ day.wind_speed }} MPH</h6>
+                    <h6>Humidity: {{ day.humidity }}%</h6>
+                    <h6>Weather:
+                      <img class="weather-icon" src="/static/img/{% if day.rain_intensity > 0.1 %}rain.png{% elif day.cloud_cover > 50 %}cloud.png{% else %}sun.png{% endif %}" alt="Weather Icon">
+                    </h6>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+    <script>
+      setInterval(() => {
+        window.location.reload();
+      }, 3600000); // 1 hour
+    </script>
+  </body>
+</html>
